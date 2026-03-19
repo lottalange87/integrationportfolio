@@ -2,51 +2,61 @@
     controllerName="integrationportfolio.controller.App"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
+    xmlns:core="sap.ui.core"
     displayBlock="true">
 
     <App id="app">
         <pages>
-            <Page
-                title="Integration Portfolio"
-                showHeader="true">
+            <Page id="mainPage" showHeader="false">
+
+                <!-- ── Top bar ──────────────────────────────────────────── -->
+                <customHeader>
+                    <Bar design="Header">
+                        <contentLeft>
+                            <Title text="Integration Portfolio" titleStyle="H4"/>
+                        </contentLeft>
+                        <contentMiddle>
+                            <Title text="Service Offerings" titleStyle="H5"/>
+                        </contentMiddle>
+                        <contentRight>
+                            <Button
+                                id="btnAddOffering"
+                                text="Add Offering"
+                                type="Emphasized"
+                                icon="sap-icon://add"
+                                press="onAddOffering"/>
+                        </contentRight>
+                    </Bar>
+                </customHeader>
+
                 <content>
-                    <VBox
-                        alignItems="Center"
-                        justifyContent="Center"
-                        height="100%"
-                        class="sapUiMediumMarginTop">
 
-                        <Image
-                            src="https://www.sap.com/dam/application/shared/logos/sap-logo-svg.svg"
-                            width="120px"
-                            class="sapUiSmallMarginBottom"
-                            alt="SAP Logo"/>
-
-                        <Title
-                            text="Hello World"
-                            level="H1"
-                            titleStyle="H1"
-                            class="sapUiSmallMarginBottom"/>
-
-                        <Title
-                            text="Integration Portfolio"
-                            level="H2"
-                            titleStyle="H2"
-                            class="sapUiSmallMarginBottom"/>
-
+                    <!-- ── Intro ──────────────────────────────────────────── -->
+                    <VBox class="sapUiMediumMarginBeginEnd sapUiSmallMarginTopBottom">
                         <Text
-                            text="Welcome to the SAP UI5 Integration Portfolio application."
-                            textAlign="Center"
-                            class="sapUiMediumMarginTop sapUiMediumMarginBottom"/>
-
+                            text="Define and sequence the service offerings in your integration portfolio. Cards are displayed left → right in execution order. Use ◀ ▶ to reorder."
+                            class="sapUiTinyMarginBottom"/>
                         <MessageStrip
-                            text="Application loaded successfully 🚀"
-                            type="Success"
+                            id="infoStrip"
+                            text="Mockup — data is in-memory only. Add offerings with the button above."
+                            type="Information"
                             showIcon="true"
-                            showCloseButton="false"
-                            class="sapUiSmallMarginTop"/>
-
+                            showCloseButton="false"/>
                     </VBox>
+
+                    <!-- ── Card flow container (populated by controller) ─── -->
+                    <ScrollContainer
+                        horizontal="true"
+                        vertical="false"
+                        width="100%"
+                        height="auto">
+                        <HBox
+                            id="offeringsFlow"
+                            alignItems="Center"
+                            wrap="NoWrap"
+                            class="sapUiMediumMarginBeginEnd sapUiSmallMarginTopBottom offeringsFlowBox"/>
+                    </ScrollContainer>
+
                 </content>
             </Page>
         </pages>
