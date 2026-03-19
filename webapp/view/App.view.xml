@@ -1,0 +1,55 @@
+<mvc:View
+    controllerName="integrationportfolio.controller.App"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    displayBlock="true">
+
+    <App id="app">
+        <pages>
+            <Page
+                title="Integration Portfolio"
+                showHeader="true">
+                <content>
+                    <VBox
+                        alignItems="Center"
+                        justifyContent="Center"
+                        height="100%"
+                        class="sapUiMediumMarginTop">
+
+                        <Image
+                            src="https://www.sap.com/dam/application/shared/logos/sap-logo-svg.svg"
+                            width="120px"
+                            class="sapUiSmallMarginBottom"
+                            alt="SAP Logo"/>
+
+                        <Title
+                            text="Hello World"
+                            level="H1"
+                            titleStyle="H1"
+                            class="sapUiSmallMarginBottom"/>
+
+                        <Title
+                            text="Integration Portfolio"
+                            level="H2"
+                            titleStyle="H2"
+                            class="sapUiSmallMarginBottom"/>
+
+                        <Text
+                            text="Welcome to the SAP UI5 Integration Portfolio application."
+                            textAlign="Center"
+                            class="sapUiMediumMarginTop sapUiMediumMarginBottom"/>
+
+                        <MessageStrip
+                            text="Application loaded successfully 🚀"
+                            type="Success"
+                            showIcon="true"
+                            showCloseButton="false"
+                            class="sapUiSmallMarginTop"/>
+
+                    </VBox>
+                </content>
+            </Page>
+        </pages>
+    </App>
+
+</mvc:View>
